@@ -4,26 +4,22 @@ int add(int a, int b);
 /**
  * main.c
  */
+int d;
 int main(void)
 {
     WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
-    int a = 9;
-    int b = 17;
-    int sum = add(a, b);
-    if (sum == 26)
-    {
-        // no overflow
-        P1OUT &= ~BIT0;
-    }
-    else
-    {
-        // overflow
-        P1OUT |= BIT0;
-    }
+    int a = 0b10001111000000001;
+    int b = 0b10001100000000001;
+
+
+    d = add(a, b);
+    while(1);
+
     return 0;
 }
+
 int add(int a, int b)
 {
-    int result = a + b;
-    return result;
+    int d = a + b;
+    return d;
 }
